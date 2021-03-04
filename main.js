@@ -1,6 +1,9 @@
 canvas = document.getElementById('myCanvas');
 ctx = canvas.getContext("2d");
 
+
+
+
 car1_width = 105;
 car1_height = 55;
 background_image = "racing track.jpg";
@@ -27,6 +30,8 @@ function add() {
     car2_imgTag = new Image();
     car2_imgTag.onload = uploadcar2;
     car2_imgTag.src = car2_image;
+
+
 }
 
 function uploadBackground() {
@@ -77,5 +82,112 @@ function my_keydown(e) {
     if (keyPressed == '68') {
         car2_right();
         console.log("key d");
+    }
+}
+
+
+function car1_up() {
+    if (car1_y >= 0) {
+        car1_y = car1_y - 10;
+        console.log("when up arrow is pressed, x = " + car1_x + " and y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+}
+
+function car1_down() {
+    if (car1_y <= 500) {
+        car1_y = car1_y + 10;
+        console.log("when down arrow is pressed, x = " + car1_x + " and y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+}
+
+function car1_right() {
+    if (car1_x <= 695) {
+        car1_x += 10;
+        console.log("when right arrow is pressed, x = " + car1_x + " and y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+
+    }
+    if (car2_x <= 680) {
+
+        if (car1_x >= 695) {
+            console.log("car1 Won!!");
+
+            document.getElementById("game_status").innerHTML = "Car 1 Won!!";
+        }
+    }
+}
+
+function car1_left() {
+    if (car1_x > 0) {
+        car1_x -= 10;
+        console.log("when left arrow is pressed, x = " + car1_x + " and y = " + car1_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+}
+
+function car2_up() {
+    if (car2_y >= 0) {
+        car2_y = car2_y - 10;
+        console.log("when up arrow is pressed, x = " + car2_x + " and y = " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+}
+
+function car2_down() {
+    if (car2_y <= 500) {
+        car2_y = car2_y + 10;
+        console.log("when down arrow is pressed, x = " + car2_x + " and y = " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+}
+
+function car2_right() {
+    if (car2_x <= 685) {
+        car2_x += 10;
+        console.log("when right arrow is pressed, x = " + car2_x + " and y = " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
+    }
+    if (car1_x <= 690) {
+
+        if (car2_x >= 685) {
+            console.log("car2 Won!!");
+
+            document.getElementById("game_status").innerHTML = "Car 2 Won!!";
+
+        }
+    }
+}
+
+function car2_left() {
+    if (car2_x >= 0) {
+        car2_x -= 10;
+        console.log("when left arrow is pressed, x = " + car2_x + " and y = " + car2_y);
+        uploadBackground();
+        uploadcar1();
+        uploadcar2();
+
     }
 }
